@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>.</title>
+</head>
+<body>
+<script>
+(async function() {
+
+  const params = new URLSearchParams(window.location.search);
+  const prospect = params.get("p") || "unknown";
+
+  await fetch("https://hook.eu1.make.com/ogl2vguvfeikm55fwaqa42f8dkvw1aow", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      prospect: prospect,
+      timestamp: new Date().toISOString(),
+      ua: navigator.userAgent
+    })
+  });
+
+})();
+</script>
+</body>
+</html>
